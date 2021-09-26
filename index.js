@@ -9,6 +9,14 @@ app.get( "/" , (req, res) => {
   res.status( 200 ).send(html);
 });
 
+app.get( "/test" , (req, res) => {
+   const html =  ` <h1> Hello World dalla nostra app OpenShift NodeJS </h1> 
+  <p> My Pod Name : ${process.env.MY_POD_NAME} </p> 
+  <p> Nome della mia applicazione : ${process.env.MY_APPLICATION_NAME} </p>`;
+
+  res.status( 200 ).send(html);
+});
+
 app.get( "/health" , (req, res) => {
    const html =  "<h1>L'applicazione è integra</h1>" ;
 
